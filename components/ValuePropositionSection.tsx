@@ -42,7 +42,7 @@ export default function ValuePropositionSection() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="w-2 h-2 bg-primary-dark-green rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                <span className="text-primary-dark-green">Access to our network of 500+ strategic investors</span>
+                <span className="text-primary-dark-green">Access to our network of 500+ strategic investors, and Exchanges</span>
               </li>
               <li className="flex items-start">
                 <div className="w-2 h-2 bg-primary-dark-green rounded-full mt-2 mr-3 flex-shrink-0"></div>

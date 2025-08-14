@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 font-heading">
-            <span className="text-accent-white">Elite Venture Scouts for </span>
+            <span className="text-accent-white">Elite Venture Agency for </span>
             <span className="text-gradient">Web3 & Emerging Tech</span>
           </h1>
           
@@ -50,7 +50,13 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-accent-white hover:bg-gray-100 text-primary-dark-green font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            onClick={() => {
+              document.getElementById('contact')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              })
+            }}
+            className="bg-accent-white hover:bg-gray-100 text-primary-dark-green font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
           >
             Connect With Us
           </motion.button>

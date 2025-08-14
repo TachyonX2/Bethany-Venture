@@ -19,13 +19,13 @@ export default function AboutSection() {
               <span className="text-gradient">About Bethany Ventures</span>
             </h2>
             <p className="text-lg text-primary-dark-green leading-relaxed">
-              We are a network of elite venture scouts with deep expertise in Web3, blockchain, 
+              We are a venture agency with deep expertise in Web3, blockchain, 
               and emerging technologies. Our mission is to bridge the gap between innovative 
               founders and strategic investors, ensuring that groundbreaking projects receive 
               the funding and support they need to scale from pre-seed to Series B+ and beyond.
             </p>
             <p className="text-lg text-primary-dark-green leading-relaxed mt-4">
-              With years of experience in venture capital and a proven track record of successful 
+              With years of experience in venture capitalism and a proven track record of successful 
               exits, our team brings unparalleled insights into market dynamics, investor 
               preferences, and strategic positioning that maximizes funding success rates.
             </p>

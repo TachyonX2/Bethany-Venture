@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { init, send } from '@emailjs/browser'
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -10,14 +11,59 @@ export default function ContactSection() {
     projectStage: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Initialize EmailJS
+  useEffect(() => {
+    try {
+      init("tKMsgNQvbmzvllnNH")
+      console.log('EmailJS initialized successfully')
+    } catch (error) {
+      console.error('EmailJS init failed:', error)
+    }
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // For now, just log the form data
-    console.log('Form submitted:', formData)
-    // In a real implementation, you would send this to your backend
-    alert('Thank you for your message! We will get back to you soon.')
-    setFormData({ name: '', email: '', projectStage: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Check if EmailJS is available
+      if (typeof send === 'undefined') {
+        throw new Error('EmailJS not initialized. Please refresh the page and try again.')
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        project_stage: formData.projectStage,
+        message: formData.message,
+        to_name: 'Bethany Ventures Team'
+      }
+
+      console.log('Sending email with params:', templateParams)
+
+      await send(
+        'service_wnma9y5',
+        'template_v63a4pm',
+        templateParams
+      )
+
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', projectStage: '', message: '' })
+    } catch (error: any) {
+      console.error('Email send failed:', error)
+      console.error('Error details:', {
+        message: error?.message,
+        stack: error?.stack,
+        response: error?.response
+      })
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -28,7 +74,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-accent-white">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-accent-white">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -129,10 +175,38 @@ export default function ContactSection() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full bg-primary-dark-green hover:bg-primary-muted-green text-accent-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+              disabled={isSubmitting}
+              className={`w-full font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl ${
+                isSubmitting 
+                  ? 'bg-gray-400 cursor-not-allowed' 
+                  : 'bg-primary-dark-green hover:bg-primary-muted-green'
+              } text-accent-white`}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </motion.button>
+
+
+
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center"
+              >
+                Thank you! Your message has been sent successfully. We'll get back to you soon.
+              </motion.div>
+            )}
+
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg text-center"
+              >
+                Sorry, there was an error sending your message. Please try again or contact us directly.
+              </motion.div>
+            )}
           </form>
         </motion.div>
       </div>

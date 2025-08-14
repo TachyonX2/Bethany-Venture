@@ -41,7 +41,7 @@ export default function PartnerLogos() {
           className="text-center mb-12"
         >
           <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-heading">
-            <span className="text-gradient">Trusted By Industry Leaders</span>
+            <span className="text-gradient">Key Partners</span>
           </h2>
           <p className="text-lg text-primary-dark-green max-w-2xl mx-auto">
             We work with established companies and innovative startups across the Web3 and emerging tech ecosystem.

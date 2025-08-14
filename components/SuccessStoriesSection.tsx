@@ -8,7 +8,7 @@ const successStories = [
     description: 'Helped a DeFi protocol secure $15M Series A funding from top-tier VCs, achieving 3x oversubscription within 2 weeks.',
     metrics: {
       funding: '$15M',
-      timeline: '2 weeks',
+      timeline: '6 weeks',
       oversubscription: '3x'
     },
     category: 'DeFi'
@@ -50,7 +50,7 @@ export default function SuccessStoriesSection() {
             <span className="text-gradient">Success Stories</span>
           </h2>
           <p className="text-xl text-primary-dark-green max-w-2xl mx-auto">
-            Real results from real projects. Here are some of our recent success stories.
+            Real results from real projects. Here are some of our recent success stories(NDA).
           </p>
         </motion.div>
 
