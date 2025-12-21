@@ -1,6 +1,7 @@
 import HeroSection from '../components/HeroSection'
 import AboutSection from '../components/AboutSection'
 import PartnerLogos from '../components/PartnerLogos'
+import ExchangePartnersSection from '../components/ExchangePartnersSection'
 import WhatWeDoSection from '../components/WhatWeDoSection'
 import ValuePropositionSection from '../components/ValuePropositionSection'
 import ProcessSection from '../components/ProcessSection'
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <PartnerLogos />
+      <ExchangePartnersSection />
       <WhatWeDoSection />
       <ValuePropositionSection />
       <ProcessSection />
