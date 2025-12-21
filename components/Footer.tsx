@@ -79,7 +79,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-accent-white mb-4 font-heading">Contact</h4>
             <ul className="space-y-2">
               <li className="text-gray-200">
-                <span className="text-accent-white font-semibold">Email:</span> hello@bethany.ventures
+                <span className="text-accent-white font-semibold">Email:</span> hello@bethanyventures.org
               </li>
               <li className="text-gray-200">
                 <span className="text-accent-white font-semibold">Phone:</span> +1 (555) 123-4567
