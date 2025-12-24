@@ -68,10 +68,10 @@ export default function ExchangePartnersSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-heading">
-            <span className="text-gradient">Tier 1 Exchange Partners</span>
+            <span className="text-gradient">Exchange Listings</span>
           </h2>
           <p className="text-xl text-primary-dark-green max-w-2xl mx-auto">
-            We partner with leading Tier 1 cryptocurrency exchanges to provide seamless listing opportunities and market access for our portfolio companies.
+            We partner with leading cryptocurrency exchanges to provide seamless listing opportunities and market access for our portfolio companies.
           </p>
         </motion.div>
 
