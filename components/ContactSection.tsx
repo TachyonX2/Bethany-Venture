@@ -87,7 +87,7 @@ export default function ContactSection() {
             <span className="text-gradient">Get In Touch</span>
           </h2>
           <p className="text-xl text-primary-dark-green max-w-2xl mx-auto">
-            Ready to take your project to the next level? Let's discuss how we can help you secure the funding you need.
+            Ready to take your project to the next level? Let&apos;s discuss how we can help you secure the funding you need.
           </p>
         </motion.div>
 
@@ -194,7 +194,7 @@ export default function ContactSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center"
               >
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
+                Thank you! Your message has been sent successfully. We&apos;ll get back to you soon.
               </motion.div>
             )}
 
