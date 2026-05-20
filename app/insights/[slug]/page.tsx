@@ -1,19 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { insightsPosts } from '@/lib/site-data'
 
-const posts = [
-  {
-    slug: 'state-of-web3-fundraising-2026',
-    title: 'The State of Web3 Fundraising in 2026',
-    summary:
-      'Fundraising has shifted from narrative to proof—product, users, treasury discipline, and investor alignment now define what is fundable.',
-  },
-  {
-    slug: 'otc-vs-public-raises-allocation-models',
-    title: 'OTC vs Public Raises: Strategic Allocation Models',
-    summary:
-      'Why OTC allocations are increasingly preferred for control, stability, partner quality, and predictable market formation.',
-  },
-]
+const posts = insightsPosts.map(({ slug, title, summary }) => ({ slug, title, summary }))
 
 type Params = {
   params: {
@@ -45,12 +34,15 @@ export default function InsightPostPage({ params }: Params) {
 
   if (!post) {
     return (
-      <div className="bg-accent-white px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-primary-dark-green">
-          <h1 className="text-2xl font-semibold">Insight not found</h1>
-          <p className="mt-3 text-sm text-primary-dark-green/80">
+      <div className="section-padding">
+        <div className="container-narrow max-w-3xl">
+          <h1 className="heading-section">Insight not found</h1>
+          <p className="mt-3 body-muted">
             This insight is not available. Please return to the insights index.
           </p>
+          <Link href="/insights" className="btn-ghost mt-6 inline-flex">
+            All insights
+          </Link>
         </div>
       </div>
     )
@@ -58,22 +50,23 @@ export default function InsightPostPage({ params }: Params) {
 
   if (post.slug === 'state-of-web3-fundraising-2026') {
     return (
-      <div className="bg-accent-white px-4 py-20 sm:px-6 lg:px-8">
-        <article className="mx-auto max-w-3xl space-y-6 text-primary-dark-green">
-          <header className="space-y-3">
-            <p className="text-xs font-semibold tracking-[0.18em] text-primary-dark-green/80 uppercase">
-              Insight
-            </p>
-            <h1 className="text-3xl font-bold text-primary-dark-green sm:text-4xl font-heading">
+      <div className="section-padding">
+        <article className="container-narrow mx-auto max-w-3xl space-y-6">
+          <Link href="/insights" className="btn-ghost mb-6 inline-flex">
+            All insights
+          </Link>
+          <header className="space-y-3 border-b border-white/[0.08] pb-8">
+            <p className="section-label">Fundraising · 7 min read</p>
+            <h1 className="heading-display">
               The State of Web3 Fundraising in 2026
             </h1>
-            <p className="text-sm sm:text-base text-primary-dark-green/80">
+            <p className="body-muted">
               Web3 fundraising in 2026 is defined by maturity: structure over speculation, proof
               over potential, and disciplined capital formation.
             </p>
           </header>
 
-          <div className="space-y-4 border-t border-gray-200 pt-6 text-sm text-primary-dark-green/90 leading-relaxed">
+          <div className="prose-legal space-y-4 pt-8">
             <p>
               Web3 fundraising in 2026 no longer carries the noise and impulsiveness that once
               defined it in recent years. The market has gone through enough cycles of
@@ -86,7 +79,7 @@ export default function InsightPostPage({ params }: Params) {
               with a clear preference for structure over speculation.
             </p>
             <p>
-              There was a time when a strong narrative, a well-designed token logo, and a
+              There was a time when a strong narrative, a well designed token logo, and a
               promise of future utility were enough to unlock millions in funding. That time
               has passed. Investors today are far less interested in what a project could
               become and far more focused on what it already is. They want to see working
@@ -110,7 +103,7 @@ export default function InsightPostPage({ params }: Params) {
               cautionary tales. In response, teams are now designing token economies with
               precision. Circulating supply at launch is carefully controlled, unlock schedules
               are stretched and aligned with growth milestones, and distribution is approached
-              with a long-term view. The goal is no longer to create immediate hype, but to
+              with a long term view. The goal is no longer to create immediate hype, but to
               build a market structure that can sustain itself over time.
             </p>
             <p>
@@ -139,7 +132,7 @@ export default function InsightPostPage({ params }: Params) {
             </p>
           </div>
 
-          <p className="pt-2 text-xs text-primary-dark-green/70">
+          <p className="pt-6 text-xs text-ink-faint">
             Bethany Ventures does not provide financial advice.
           </p>
         </article>
@@ -149,22 +142,23 @@ export default function InsightPostPage({ params }: Params) {
 
   if (post.slug === 'otc-vs-public-raises-allocation-models') {
     return (
-      <div className="bg-accent-white px-4 py-20 sm:px-6 lg:px-8">
-        <article className="mx-auto max-w-3xl space-y-6 text-primary-dark-green">
-          <header className="space-y-3">
-            <p className="text-xs font-semibold tracking-[0.18em] text-primary-dark-green/80 uppercase">
-              Insight
-            </p>
-            <h1 className="text-3xl font-bold text-primary-dark-green sm:text-4xl font-heading">
+      <div className="section-padding">
+        <article className="container-narrow mx-auto max-w-3xl space-y-6">
+          <Link href="/insights" className="btn-ghost mb-6 inline-flex">
+            All insights
+          </Link>
+          <header className="space-y-3 border-b border-white/[0.08] pb-8">
+            <p className="section-label">Capital Structure · 6 min read</p>
+            <h1 className="heading-display">
               OTC vs Public Raises: Why Strategic OTC Allocation Is Winning in 2026
             </h1>
-            <p className="text-sm sm:text-base text-primary-dark-green/80">
-              In 2026, projects increasingly optimize for control and market formation—not
+            <p className="body-muted">
+              In 2026, projects increasingly optimize for control and market formation, not
               visibility. OTC structures offer intentionality that public raises rarely do.
             </p>
           </header>
 
-          <div className="space-y-4 border-t border-gray-200 pt-6 text-sm text-primary-dark-green/90 leading-relaxed">
+          <div className="prose-legal space-y-4 pt-8">
             <p>
               It&apos;s been a year of us venturing into the venture market, and one thing we have
               realized is that the conversation around fundraising in Web3 has become less
@@ -177,9 +171,9 @@ export default function InsightPostPage({ params }: Params) {
             <p>
               At its core, an OTC raise allows a project to choose its early believers. This
               is not a small advantage. In public raises, participation is open, often driven
-              by short-term excitement and opportunistic behavior. In contrast, OTC deals are
+              by short term excitement and opportunistic behavior. In contrast, OTC deals are
               negotiated, structured, and selective. Founders have the ability to align with
-              participants who understand the long-term vision, who are willing to commit under
+              participants who understand the long term vision, who are willing to commit under
               defined terms, and who are less likely to react impulsively when market conditions
               change. This level of control creates a foundation that is far more stable than
               what public participation typically offers.
@@ -197,7 +191,7 @@ export default function InsightPostPage({ params }: Params) {
               Another important advantage lies in relationship building. OTC participants are
               not just buyers; they are often partners. These are funds, market participants,
               and ecosystem players who bring more than capital to the table. They provide
-              strategic guidance, access to liquidity channels, and in many cases, long-term
+              strategic guidance, access to liquidity channels, and in many cases, long term
               support that extends beyond the initial raise. This transforms fundraising from a
               transactional event into a collaborative process, where both sides are invested
               in the success of the project over time.
@@ -224,8 +218,8 @@ export default function InsightPostPage({ params }: Params) {
               beyond the raise itself. They understand that fundraising is not just about
               capital inflow, but about market formation. By leaning into OTC, they are
               effectively designing the early conditions under which their token will exist.
-              They are choosing stability over noise, alignment over access, and long-term
-              positioning over short-term attention.
+              They are choosing stability over noise, alignment over access, and long term
+              positioning over short term attention.
             </p>
             <p>
               This is not to suggest that public participation has no role to play. It still
@@ -237,13 +231,13 @@ export default function InsightPostPage({ params }: Params) {
             <p>
               The rising preference for OTC in 2026 is strongly reflecting this broader
               evolution in Web3 thinking. We have seen the industry moving away from
-              exposure-driven decisions and toward structure-driven ones. Soon, we will
+              exposure driven decisions and toward structure driven ones. Soon, we will
               experience an alarming number of projects that would no longer be concerned about
               how loud they can be on CT, but how well they can build.
             </p>
           </div>
 
-          <p className="pt-2 text-xs text-primary-dark-green/70">
+          <p className="pt-6 text-xs text-ink-faint">
             Bethany Ventures does not provide financial advice.
           </p>
         </article>
@@ -251,37 +245,6 @@ export default function InsightPostPage({ params }: Params) {
     )
   }
 
-  return (
-    <div className="bg-accent-white px-4 py-20 sm:px-6 lg:px-8">
-      <article className="mx-auto max-w-3xl space-y-6 text-primary-dark-green">
-        <header className="space-y-3">
-          <p className="text-xs font-semibold tracking-[0.18em] text-primary-dark-green/80 uppercase">
-            Insight
-          </p>
-          <h1 className="text-3xl font-bold text-primary-dark-green sm:text-4xl font-heading">
-            {post.title}
-          </h1>
-          <p className="text-sm sm:text-base text-primary-dark-green/80">{post.summary}</p>
-        </header>
-
-        <div className="space-y-4 border-t border-gray-200 pt-6 text-sm text-primary-dark-green/80">
-          <p>
-            This article will outline Bethany Ventures&apos; working perspective on{' '}
-            <span className="text-primary-dark-green">{post.title}</span>. It is a placeholder
-            framework to be expanded with detailed research, case studies, and operating
-            guidance for founders and allocators.
-          </p>
-          <p>
-            For now, use this page as a routing and SEO scaffold. Each topic will
-            eventually cover practical considerations for liquidity, capital structure,
-            exchange access, and counterparty selection aligned with institutional standards.
-          </p>
-          <p className="pt-2 text-xs text-primary-dark-green/70">
-            Nothing in this insight constitutes financial, legal, or investment advice.
-          </p>
-        </div>
-      </article>
-    </div>
-  )
+  return null
 }
 

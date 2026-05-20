@@ -2,37 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: #FFFFFF;
-    color: #0F4C45;
+    @apply bg-surface text-ink antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', 'Poppins', system-ui, sans-serif;
+  ::selection {
+    @apply bg-brand-light/40 text-ink;
   }
 }
 
 @layer components {
-  .gradient-bg {
-    background: linear-gradient(135deg, #0F4C45 0%, #2C6E63 100%);
+  .section-padding {
+    @apply px-4 py-24 sm:px-6 lg:px-8 lg:py-32;
   }
-  
-  .green-gradient {
-    background: linear-gradient(135deg, #0F4C45 0%, #2C6E63 100%);
+
+  .container-narrow {
+    @apply mx-auto max-w-6xl;
   }
-  
-  .text-gradient {
-    background: linear-gradient(135deg, #dfda94 0%, #38b000 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  .section-label {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-muted;
+  }
+
+  .heading-display {
+    @apply font-display text-3xl font-normal tracking-tight text-ink sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15];
+  }
+
+  .heading-section {
+    @apply font-display text-2xl font-normal tracking-tight text-ink sm:text-3xl lg:text-4xl;
+  }
+
+  .body-muted {
+    @apply text-sm leading-relaxed text-ink-muted sm:text-base;
+  }
+
+  .card-premium {
+    @apply rounded-2xl border border-white/[0.08] bg-surface-raised/80 backdrop-blur-sm transition duration-300;
+  }
+
+  .card-premium:hover {
+    @apply border-brand-light/30 shadow-glow-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-surface transition duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-light;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-6 py-3 text-sm font-medium text-ink transition duration-200 hover:border-brand-light/50 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-light;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-brand-muted transition hover:text-ink;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-muted via-brand-glow to-brand-light bg-clip-text text-transparent;
+  }
+
+  .divider-gradient {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  .prose-legal {
+    @apply space-y-4 text-sm leading-relaxed text-ink-muted;
+  }
+
+  .prose-legal h2 {
+    @apply mt-8 text-lg font-semibold text-ink;
+  }
+
+  .prose-legal h3 {
+    @apply mt-6 text-base font-semibold text-ink;
+  }
+
+  .prose-legal ul {
+    @apply list-disc space-y-2 pl-5;
   }
 }

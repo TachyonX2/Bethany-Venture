@@ -1,113 +1,128 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { CALENDLY_URL, INTAKE_URL } from '@/lib/site-data'
 
-const metrics = [
-  { label: 'OTC flow coordinated', value: '500+ SOL' },
-  { label: 'Focus', value: 'Web3 & Emerging Tech' },
-  { label: 'Mandate', value: 'Strategic capital & liquidity' },
+const focusAreas = [
+  'Capital advisory & raise preparation',
+  'OTC & private allocation coordination',
+  'Exchange strategy & market access',
+  'Growth, partnerships & GTM',
 ]
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-primary-dark-green">
-      <div className="absolute inset-0 gradient-bg opacity-90" />
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 bg-hero-glow" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand/20 via-transparent to-surface" />
 
-      <div className="relative mx-auto flex min-h-[80vh] max-w-6xl flex-col justify-center px-4 py-20 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-          {/* Left: narrative + CTAs */}
+      <div className="container-narrow relative flex min-h-[88vh] flex-col justify-center px-4 py-28 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.35fr_1fr]">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-8"
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-accent-white/20 bg-primary-dark-green/40 px-4 py-1 text-[11px] font-medium text-accent-white/90">
-              <span className="h-1.5 w-1.5 rounded-full bg-lime-300" />
-              Liquidity, capital, and exchange access for institutional-grade Web3 teams.
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-glow opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-glow" />
+              </span>
+              <span className="text-[11px] font-medium tracking-wide text-ink-muted">
+                Boutique Web3 capital & liquidity advisory
+              </span>
             </div>
 
-            <div className="space-y-5">
-              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-accent-white sm:text-5xl lg:text-[2.9rem] font-heading leading-tight">
-                Elite Venture Agency for{' '}
-                <span className="text-gradient">Web3 &amp; Emerging Tech</span>
+            <div className="space-y-6">
+              <h1 className="heading-display max-w-4xl">
+                Strategic advisory for founders building{' '}
+                <span className="gradient-text">credible markets</span>
               </h1>
-              <p className="max-w-2xl text-sm text-gray-100/95 sm:text-base">
-                Helping high-potential Web3 and emerging tech projects secure strategic capital,
-                structure liquidity, and access top-tier exchanges through expert advisory and
-                matchmaking.
+              <p className="max-w-xl body-muted text-base sm:text-lg">
+                Bethany Ventures helps Web3 teams structure raises, coordinate OTC and
+                liquidity, navigate exchange pathways, and activate partnerships, with the
+                discipline of a boutique advisory firm, not a hype agency.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                href="https://calendly.com/hello-bethanyventures/30min"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href={CALENDLY_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-background-light-gray px-6 py-3 text-sm font-semibold text-primary-dark-green shadow-sm transition hover:bg-accent-white"
+                className="btn-primary"
               >
-                Schedule a Call
+                Book a Strategy Call
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                href="https://tally.so/r/b57eDg"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href={INTAKE_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-accent-white/50 bg-transparent px-6 py-3 text-sm font-medium text-accent-white transition hover:bg-accent-white hover:text-primary-dark-green"
+                className="btn-secondary"
               >
-                Apply for Funding
+                Discuss Your Raise
               </motion.a>
             </div>
+
+            <p className="text-xs text-ink-faint max-w-lg">
+              Advisory services only. Bethany Ventures is not a venture fund, broker dealer,
+              or exchange. No offer of securities on this site.
+            </p>
           </motion.div>
 
-          {/* Right: structured hero panel */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 16 }}
+            initial={{ opacity: 0, scale: 0.97, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-            className="hidden rounded-2xl border border-accent-white/10 bg-primary-dark-green/40 p-5 shadow-lg/40 sm:block"
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden lg:block"
           >
-            <div className="mb-4 flex items-center justify-between text-[11px] text-accent-white/70">
-              <span className="uppercase tracking-[0.18em]">Mandate overview</span>
-              <span>Founders • Investors</span>
-            </div>
-
-            <div className="space-y-4 rounded-xl bg-primary-dark-green/60 p-4">
-              {metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="flex items-baseline justify-between gap-4 border-b border-accent-white/10 pb-3 last:border-b-0 last:pb-0"
-                >
-                  <span className="text-[11px] uppercase tracking-[0.16em] text-accent-white/60">
-                    {metric.label}
-                  </span>
-                  <span className="text-sm font-semibold text-accent-white">
-                    {metric.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 grid gap-3 text-[11px] text-accent-white/80 sm:grid-cols-2">
-              <div className="rounded-lg border border-accent-white/10 bg-primary-dark-green/40 px-3 py-2">
-                <div className="font-semibold text-accent-white">For Founders</div>
-                <p className="mt-1 text-[11px] text-accent-white/80">
-                  Strategic capital, liquidity design, and exchange access for serious teams.
-                </p>
+            <div className="card-premium bg-card-glow p-6 shadow-glow">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="section-label">Advisory mandate</span>
+                <span className="text-[10px] text-ink-faint">Founders · Investors · Ecosystems</span>
               </div>
-              <div className="rounded-lg border border-accent-white/10 bg-primary-dark-green/40 px-3 py-2">
-                <div className="font-semibold text-accent-white">For Investors</div>
-                <p className="mt-1 text-[11px] text-accent-white/80">
-                  Curated Web3 deal flow with disciplined entry and distribution coordination.
-                </p>
+
+              <ul className="space-y-4">
+                {focusAreas.map((area, i) => (
+                  <li
+                    key={area}
+                    className="flex items-start gap-3 border-b border-white/[0.06] pb-4 last:border-0 last:pb-0"
+                  >
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand-light/40 text-[10px] font-semibold text-brand-muted">
+                      {i + 1}
+                    </span>
+                    <span className="text-sm text-ink">{area}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="divider-gradient my-5" />
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-xl border border-white/[0.06] bg-surface/60 p-3">
+                  <p className="text-[10px] uppercase tracking-wider text-ink-faint">For founders</p>
+                  <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+                    Raise prep, OTC, exchange strategy, and GTM coordination.
+                  </p>
+                </div>
+                <div className="rounded-xl border border-white/[0.06] bg-surface/60 p-3">
+                  <p className="text-[10px] uppercase tracking-wider text-ink-faint">For investors</p>
+                  <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+                    Curated introductions and structured allocation access.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
+
+      <div className="divider-gradient" />
     </section>
   )
 }

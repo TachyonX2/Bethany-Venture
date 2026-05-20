@@ -11,7 +11,6 @@
     "postinstall": "echo '🎉 Bethany Ventures website setup complete! Run npm run dev to start the development server.'"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "framer-motion": "^10.16.16",
     "next": "14.0.4",
     "react": "^18",
